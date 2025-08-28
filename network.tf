@@ -24,7 +24,7 @@ resource "aws_subnet" "public_subnet_1" {
 resource "aws_subnet" "public_subnet_2" {
   vpc_id                  = aws_vpc.iac_lab_vpc.id
   cidr_block              = var.subnet2_cidr
-  availability_zone       = format("%sa", var.region)
+  availability_zone       = format("%sb", var.region)
   map_public_ip_on_launch = true
 
   tags = {
@@ -45,7 +45,7 @@ resource "aws_subnet" "private_subnet_1" {
 resource "aws_subnet" "private_subnet_2" {
   vpc_id            = aws_vpc.iac_lab_vpc.id
   cidr_block        = var.subnet4_cidr
-  availability_zone = format("%sa", var.region)
+  availability_zone = format("%sb", var.region)
 
   tags = {
     Name = format("%s-private-subnet-2", var.prefix)
